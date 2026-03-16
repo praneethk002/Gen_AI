@@ -41,16 +41,15 @@ and once everything is done generate the ai contribution file
 Claude's analysis returned the following (abridged):
 
 > **Deliverables check:**
-> - Code: ✅ notebook present with full pipeline
-> - Logs: ✅ logging infrastructure in place (writes to `apo_run_{RUN_ID}/opro_log.txt`)
-> - Writeup: ⚠️ present but thin — no structured tables, minimal discussion of what worked/didn't
-> - AI_CONTRIBUTION.md: ⚠️ present as a code generator but lacks verbatim prompt/response examples
+> - Code:  notebook present with full pipeline
+> - Logs:  logging infrastructure in place (writes to `apo_run_{RUN_ID}/opro_log.txt`)
+> - Writeup: present but thin — no structured tables, minimal discussion of what worked/didn't
+> - AI_CONTRIBUTION.md: present as a code generator but lacks verbatim prompt/response examples
 >
 > **Optional improvements check:**
-> - Exemplar Selection (Few-Shot): ✅ Cells 26–30
-> - Efficiency Penalty: ✅ `objective_with_length_penalty()` in Cell 26
-> - Different Models: ⚠️ Groq alternative mentioned in config comment only, no comparative run
-> - Advanced Tracking: ❌ no visualisation — will add matplotlib trajectory plot
+> - Exemplar Selection (Few-Shot): 
+> - Efficiency Penalty: `objective_with_length_penalty()` in Cell 26
+> - Different Models:  Groq alternative mentioned in config comment only, no comparative run
 >
 > **Plan:**
 > 1. Expand Cell 31 writeup with structured tables, detailed observations, and
@@ -127,10 +126,10 @@ async def run_opro(initial_prompts, df_train, max_iters=10, target_score_stop=0.
 
 ---
 
-## 5. My Role and Final Responsibility
+## 5. Final Responsibility without AI
 
-I reviewed, edited, executed, and validated all AI-generated code.
-I selected the final design, verified it matched the assignment brief,
+We reviewed, edited, executed, and validated all AI-generated code.
+We selected the final design, verified it matched the assignment brief,
 interpreted the final results, and wrote the analytical conclusions in the writeup.
 
-All submitted code and written analysis were reviewed by me before submission.
+All submitted code and written analysis were reviewed by us before submission.
