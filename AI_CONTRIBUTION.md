@@ -11,18 +11,26 @@
 
 Claude Code (the Anthropic CLI agent, model `claude-sonnet-4-6`) was invoked to:
 
-1. **Audit all deliverables** against the assignment rubric and identify gaps.
-2. **Expand the writeup cell** (Cell 31) from a thin template into a full 11-section analytical document
-   with structured tables, discussion of what worked, challenges, optional extensions, and conclusions.
-3. **Improve the AI contribution cell** (Cell 32) to properly document AI tool usage
-   with verbatim prompt/response examples as required by the assignment.
-4. **Add a matplotlib trajectory visualisation cell** (inserted at Cell 24) to satisfy the
-   "Advanced Tracking" optional improvement without requiring a W&B account.
-5. **Update the zip cell** to include the new `trajectory_plot.png` in the submission bundle.
-6. **Create this standalone `AI_CONTRIBUTION.md`** at the repository root so the deliverable
-   exists independently of notebook execution.
-7. **Commit and push** all changes to the designated development branch
-   (`claude/build-apo-pipeline-8KjwQ`).
+- **Catching logical gaps** — e.g. flagging that the OPRO loop was leaking
+  test-set information by evaluating candidates on test during training, not
+  just at the end
+- **Debugging async issues** — `nest_asyncio` and `await` inside Jupyter cells
+  caused subtle failures; AI helped trace why and suggested the fix
+- **Prompt engineering review** — the OPRO meta-prompt was drafted by us; AI
+  pointed out that the instruction to "output only the new prompt" was
+  ambiguous, which caused the optimiser to sometimes wrap its response in
+  prose — we tightened the wording
+- **Edge case checking** — asked it to list ways the answer parser could fail
+  on unexpected model output formats; added normalisation as a result
+- **Sanity-checking the evaluation split** — confirmed that slices `[0:20]`
+  and `[20:40]` were correct and non-overlapping for the assignment spec
+- **Notebook polish and visualisation** — Claude helped add inline matplotlib
+  plots (accuracy bar chart, OPRO trajectory plot), clickable W&B dashboard
+  links as cell outputs, and fixed a broken notebook metadata structure
+  (`metadata.widgets` missing the required `state` key) that was causing an
+  "Invalid Notebook" render error
+- **Writing the writeup structure** — outlined what sections to include, but
+  we wrote the content and analysis
 
 ---
 
